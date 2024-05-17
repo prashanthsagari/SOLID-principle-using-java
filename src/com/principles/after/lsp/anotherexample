@@ -1,0 +1,38 @@
+// Before LSP
+class Bird {
+    public void fly() {
+        // Fly logic
+    }
+}
+
+class Ostrich extends Bird {
+    @Override
+    public void fly() {
+        throw new UnsupportedOperationException("Ostrich can't fly");
+    }
+}
+
+// After LSP
+interface Bird {
+    void eat();
+}
+
+interface FlyingBird extends Bird {
+    void fly();
+}
+
+class Sparrow implements FlyingBird {
+    public void eat() {
+        // Eating logic
+    }
+
+    public void fly() {
+        // Flying logic
+    }
+}
+
+class Ostrich implements Bird {
+    public void eat() {
+        // Eating logic
+    }
+}
